@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-2.1.4.min.js"></script>
+</head>
+<style>
+    .moon{
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 200px;
+        height: 200px;
+        border: 1px solid yellow;
+        background-color: yellow;
+        border-radius: 50%;
+        margin: auto;
+    }
+</style>
+<body>
+<div class="moon"></div>
+<script>
+    var moon = $('.moon');
+    moon.click(function(){
+        moon.animate({left:'+=256'},2500);
+        moon.animate({top:'+=256'},2500);
+        moon.queue('fx',function(){
+           $(this).css({backgroundColor:'black'});
+            $(this).dequeue('fx');
+        });
+        moon.animate({left:'-=256'},2500);
+        moon.animate({top:'-=256'},2500);
+        moon.queue('fx',function(){
+            $(this).css({backgroundColor:'green'});
+            $(this).dequeue('fx');
+        });
+    })
+
+    var str='   田盼 ';
+    console.log(str);
+    console.log($.trim(str));
+    var arr=[3,5,6,8,90,30,34];
+    $.each(arr,function(i,a){
+        console.log(i);
+        console.log(a);
+    });
+    var arr1 = [34,656,768,989,56,45];
+    var n = $.grep(arr1,function(value){
+        return value>100;
+    },true);
+    console.log(n);
+    var m = $.map(arr1,function(value){
+        return value>100;
+    });
+    console.log(m);
+    var index = $.inArray(656,arr1);
+    console.log(index);
+    var arr2 = [2,4,5,6,6,7,8,9,6,8,9];
+    var b = $.unique(arr2);
+    console.log(b);
+</script>
+</body>
+</html>

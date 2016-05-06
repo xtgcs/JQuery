@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <style>
+       div{
+
+           width: 100px;
+           height: 100px;
+           border: 1px solid red;
+           text-align: center;
+           line-height: 100px;
+           background-color: #ccc;
+       }
+        .photo{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 0 auto;
+        }
+        .color{
+            color: green;
+        }
+        .font{
+            font-size: 20px;
+            text-align: center;
+            font-weight: 700;
+        }
+        .box{
+            width: 300px;
+            height: 300px;
+            margin: auto;
+            background-color: green;
+        }
+        .main{
+            width: 400px;
+            background-color: aqua;
+            height: 400px;
+        }
+        .btn{
+            width: 200px;
+            height: 200px;
+            background-color: #333;
+        }
+        .show{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+<div class="show"></div>
+<div class="text">
+    我公司股soil
+</div>
+<button id="btn">开关</button>
+<div class="box">HTML方法的测试</div>
+<div class="pic"></div>
+<div class="hm"></div>
+<div class="first"></div>
+<p>
+    <img src="images/qq.png">
+</p>
+<p>
+    <img src="images/qq.png">
+</p>
+<div class="btn">sdsdsada</div>
+<div class="main">你好，我是一个矩形块</div>
+<!--<img src="images/b.jpg" alt="美景" title="图片" id="pic" class="pic">-->
+<script>
+    var div =　$('.first');
+//   var className= $('#pic').attr("class");
+//  // var id=$(".pic").getAttribute('id');
+//   $('.pic').attr({id:'photo',class:'photo'});
+//   $('#pic').removeAttr('class');
+//   console.log(id);
+//    console.log(className);
+
+   // $('.text').toggleClass('font','color');
+   // $('.text').css('width',function(index,currentWidth){
+   //     return currentWidth+200;
+  //  });
+  $('.pic').append($("<img>",{
+      src:'images/qq.png',
+      alt:'qq 表情',
+      click:function(){
+          alert($(this).attr('alt'));
+      }
+  })
+          .css({
+              cursor:"pointer",
+              border:'1px solid red',
+              padding:'5px',
+              width:'300px',
+              height:'300px'
+
+          }));
+var width = $('.box').width(500);
+   console.log(width.text());
+    console.log(width.text("<p>这是一个设置的元素</p>"));
+    $('.hm').append('<span>我是新创建的一个元素！</span>').css({
+        width:'300px',
+        heigth:'300px',
+        border:'1px solid red',
+        margin:'50px auto'
+    });
+    $('.text').prepend('<p>添加元素到开头位置</p>').css({
+        width:'200px',
+        height:'200px',
+        backgroundColor:'green'
+    });
+    div.before(width);
+    div.after(width);
+    $('.main').bind({
+        click:function(event){
+            console.log('1');
+        },
+        mouseenter:function(event){
+            console.log("2");
+        },
+        mouseleave:function(event){
+            console.log("3");
+        }
+
+    });
+   $('#btn').click(function(){
+       $('.show').slideToggle(1000,function(){
+           $('#btn').css('backgroundColor','green');
+       });
+   })
+</script>
+</body>
+</html>
